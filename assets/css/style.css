@@ -617,7 +617,7 @@ address { font-style: normal; }
 .svc-hero__sub   { font-size: .875rem; color: var(--muted); max-width: 400px; margin-top: var(--s4); line-height: 1.8; }
 .svc-hero__deco  { font-family: var(--f-display); font-size: clamp(6rem,18vw,16rem); font-weight: 400; color: transparent; -webkit-text-stroke: 1.5px var(--border); line-height: 1; user-select: none; flex-shrink: 0; }
 .svc-grid-section { padding: var(--s16) var(--s10); }
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s8); max-width: 1400px; margin: 0 auto; }
+.svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s8); max-width: 1400px; margin: 0 auto; }
 .svc-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--s8); display: flex; flex-direction: column; gap: var(--s5); transition: transform var(--ease), box-shadow var(--ease), background-color .3s ease; }
 .svc-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(0,0,0,.09); }
 .svc-card--featured { border-color: var(--red); border-width: 2px; }
@@ -768,7 +768,7 @@ a.contact-detail__value:hover { color: var(--red); }
   .svc-hero, .svc-grid-section, .process-strip, .faq-section, .svc-cta { padding-inline: var(--s6); }
   .contact-hero, .contact-body { padding-inline: var(--s6); }
   .projects-grid { grid-template-columns: repeat(2,1fr); }
-  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -812,4 +812,60 @@ a.contact-detail__value:hover { color: var(--red); }
   .projects-grid-section, .projects-cta { padding-inline: var(--s5); }
 
   .footer__inner { flex-direction: column; }
+}
+
+
+/* ─────────────────────────────────────────
+   CALL & WHATSAPP ACTION BUTTONS
+───────────────────────────────────────── */
+.contact-detail__actions {
+  display: flex;
+  gap: var(--s2);
+  margin-top: var(--s3);
+  flex-wrap: wrap;
+}
+
+.contact-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px var(--s4);
+  border-radius: var(--pill);
+  font-family: var(--f-mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: all var(--ease);
+  text-decoration: none;
+}
+
+.contact-action-btn--call {
+  background: rgba(8,44,40,.08);
+  border: 1px solid rgba(8,44,40,.25);
+  color: var(--green);
+}
+.contact-action-btn--call:hover {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.contact-action-btn--whatsapp {
+  background: rgba(37,211,102,.1);
+  border: 1px solid rgba(37,211,102,.35);
+  color: #128C7E;
+}
+.contact-action-btn--whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+  border-color: #25D366;
+}
+
+/* WhatsApp link in the hero contact strip */
+.contact-item--whatsapp {
+  color: #128C7E;
+}
+.contact-item--whatsapp:hover {
+  color: #25D366;
 }
