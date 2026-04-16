@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Pal Aghan — frontend development work and UI/UX builds." />
+  <meta name="author" content="Pal Aghan" />
+  <title>Projects | Pal Aghan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner">
+    <div class="site-header__logo">
+      <a href="#home" aria-label="Pal Aghan — back to top">
+        <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="pga-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FF1136"/>
+              <stop offset="100%" stop-color="#082C28"/>
+            </linearGradient>
+          </defs>
+          <rect width="36" height="36" rx="8" fill="url(#pga-grad)"/>
+          <text x="18" y="24" font-family="Space Mono, monospace" font-size="10.5" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">PGA</text>
+        </svg>
+        <span class="logo-wordmark">ONLINE PORTFOLIO</span>
+      </a>
+    </div>
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-list" role="list">
+        <li><a href="index.html"     class="nav-link">Home</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link nav-link--active">Projects</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+      </svg>
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5" fill="currentColor" stroke="none"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </header>
+
+
+  <main id="main-content" role="main">
+
+    <!-- ═══════════════════════════════════
+         SECTION 1: HERO BAND
+         Page title on left, filter tabs on right.
+         Filters use data-filter to match card data-tags.
+         JavaScript in main.js handles the filtering.
+    ═══════════════════════════════════ -->
+    <section class="projects-hero" aria-labelledby="projects-heading">
+
+      <div>
+        <h1 id="projects-heading" class="projects-hero__heading">My Projects</h1>
+        <p class="projects-hero__sub">
+          Things I've built, designed, and shipped.
+          Starting with one — more on the way.
+        </p>
+      </div>
+
+      <!--
+        Filter buttons:
+        data-filter="all" shows every card.
+        data-filter="html-css" shows only cards tagged html-css.
+        JavaScript reads these values and toggles card visibility.
+        The "active" class marks the currently selected filter.
+      -->
+      <div class="filter-tabs" role="group" aria-label="Filter projects by technology">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="html-css">HTML &amp; CSS</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        <button class="filter-btn" data-filter="react">React</button>
+      </div>
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         SECTION 2: PROJECT GRID
+         3 columns — 1 real card, 2 placeholders.
+         Each card has data-tags so the JS filter can show/hide them.
+    ═══════════════════════════════════ -->
+    <section class="projects-grid-section" aria-labelledby="grid-heading">
+      <h2 id="grid-heading" class="visually-hidden">All projects</h2>
+
+      <!--
+        data-tags: space-separated list of filter values this card belongs to.
+        The JS checks if the active filter matches any of these tags.
+      -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- ── CARD 1: Portfolio Website (real) ── -->
+        <article
+          class="proj-card proj-card--featured"
+          data-tags="all html-css javascript"
+          aria-label="Project: Personal Portfolio Website"
+        >
+          <!--
+            proj-card--featured: gives this card the red border accent
+            to visually distinguish it as the primary/live project.
+          -->
+
+          <div class="proj-card__preview">
+            <!--
+              Replace the src below with an actual screenshot of your site
+              once it's deployed. File path: assets/images/project-portfolio.jpg
+              Use a screenshot from your browser or a tool like Responsively.
+            -->
+            <img
+              src="assets/images/Screenshot_homepage.jpg"
+              alt="Screenshot of Pal Aghan's portfolio website showing the home page with the animated orb"
+              width="800"
+              height="450"
+              loading="eager"
+              onerror="this.style.display='none'; this.parentElement.classList.add('proj-card__preview--placeholder'); this.parentElement.innerHTML += '<span>Portfolio</span><small>Add screenshot</small>'"
+            />
+            <!--
+              onerror: if the image file doesn't exist yet, the card
+              gracefully falls back to the placeholder style.
+              Remove this once you have the real screenshot.
+            -->
+            <span class="proj-card__badge">Live</span>
+            <span class="proj-card__number">01</span>
+          </div>
+
+          <div class="proj-card__body">
+            <div class="proj-card__tags">
+              <span class="tag tag--red">HTML5</span>
+              <span class="tag tag--red">CSS3</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <h2 class="proj-card__title">Personal Portfolio</h2>
+
+            <p class="proj-card__desc">
+              My very first web project — this portfolio. Built from scratch
+              using semantic HTML, custom CSS with animations, and vanilla
+              JavaScript. Fully responsive across all screen sizes.
+            </p>
+
+            <div class="proj-card__actions">
+              <!--
+                Replace href values below with your real URLs when deployed.
+                Live site: your hosting URL (Netlify, GitHub Pages, Vercel etc.)
+                GitHub: your repository URL
+              -->
+              <a href="#" class="proj-btn proj-btn--primary" target="_blank" rel="noopener noreferrer">
+                Live Site ↗
+              </a>
+              <a href="https://github.com/yourusername/portfolio" class="proj-btn proj-btn--ghost" target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ── CARD 2: Coming Soon placeholder ── -->
+        <article
+          class="proj-card proj-card--soon"
+          data-tags="all"
+          aria-label="Project 2 — coming soon"
+        >
+          <div class="proj-card__preview proj-card__preview--placeholder">
+            <span>Coming Soon</span>
+          </div>
+          <div class="proj-card__body">
+            <div class="proj-card__tags">
+              <span class="tag">TBD</span>
+            </div>
+            <h2 class="proj-card__title">Project 02</h2>
+            <p class="proj-card__desc">
+              Something is cooking. This card will be filled with
+              a real project as the journey continues.
+            </p>
+            <div class="proj-card__actions">
+              <span class="proj-btn proj-btn--ghost" style="opacity:.4; cursor:not-allowed;">
+                In Progress
+              </span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ── CARD 3: Coming Soon placeholder ── -->
+        <article
+          class="proj-card proj-card--soon"
+          data-tags="all"
+          aria-label="Project 3 — coming soon"
+        >
+          <div class="proj-card__preview proj-card__preview--placeholder">
+            <span>Coming Soon</span>
+          </div>
+          <div class="proj-card__body">
+            <div class="proj-card__tags">
+              <span class="tag">TBD</span>
+            </div>
+            <h2 class="proj-card__title">Project 03</h2>
+            <p class="proj-card__desc">
+              More work on the way. Every project teaches something
+              new — this space will be earned.
+            </p>
+            <div class="proj-card__actions">
+              <span class="proj-btn proj-btn--ghost" style="opacity:.4; cursor:not-allowed;">
+                In Progress
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════
+         SECTION 3: CTA BAND
+    ═══════════════════════════════════ -->
+    <section class="projects-cta" aria-labelledby="cta-heading">
+      <h2 id="cta-heading" class="projects-cta__title">Have a project in mind?</h2>
+      <p class="projects-cta__sub">
+        I'm available for freelance work and collaborations.
+        Let's build something together.
+      </p>
+      <a href="contact.html" class="projects-cta__btn">
+        Start a Conversation ↗
+      </a>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">ONLINE PORTFOLIO</a>
+        <p class="footer__tagline">Building the web, one pixel at a time.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer__social">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small>&copy; <time datetime="2026">2026</time> Pal Aghan. All rights reserved.</small>
+    </div>
+  </footer>
+
+
+  <!--
+    JAVASCRIPT: Filter logic
+    We put this inline here instead of main.js so you can see
+    exactly how the filter works before moving it to main.js.
+  -->
+  <script>
+    const btns  = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.proj-card');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from all buttons, add to clicked one
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+          // card.dataset.tags is a space-separated string e.g. "all html-css"
+          const tags = card.dataset.tags.split(' ');
+          if (tags.includes(filter)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
