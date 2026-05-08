@@ -161,6 +161,13 @@ address { font-style: normal; }
 */
 .logo-svg { flex-shrink: 0; }
 
+.logo-img {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
 .logo-wordmark {
   white-space: nowrap;
   font-family: var(--f-mono);
@@ -698,23 +705,92 @@ address { font-style: normal; }
 .chat-typing span:nth-child(3) { animation-delay: .30s; }
 @keyframes typing-bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
 .chat-text { opacity: 0; }
-.chat-row:nth-child(1) { animation: bubble-row 3s ease forwards 0.5s; }
-.chat-bubble--1 .chat-typing { animation: show-typing 3s ease forwards 0.5s; }
-.chat-bubble--1 .chat-text   { animation: show-text  3s ease forwards 0.5s; }
-.chat-row:nth-child(2) { animation: bubble-row 3s ease forwards 3.5s; }
-.chat-bubble--2 .chat-typing { animation: show-typing 3s ease forwards 3.5s; }
-.chat-bubble--2 .chat-text   { animation: show-text  3s ease forwards 3.5s; }
-.chat-row:nth-child(3) { animation: bubble-row 3s ease forwards 6.5s; }
-.chat-bubble--3 .chat-typing { animation: show-typing 3s ease forwards 6.5s; }
-.chat-bubble--3 .chat-text   { animation: show-text  3s ease forwards 6.5s; }
-.chat-row:nth-child(4) { animation: bubble-row-last 3s ease forwards 9.5s; }
-.chat-bubble--4 .chat-typing { animation: show-typing   3s ease forwards 9.5s; }
-.chat-bubble--4 .chat-text   { animation: show-text-last 3s ease forwards 9.5s; }
-@keyframes bubble-row      { 0% { opacity:0; transform:translateY(8px); } 10% { opacity:1; transform:translateY(0); } 80% { opacity:1; } 100% { opacity:0; } }
-@keyframes bubble-row-last { 0% { opacity:0; transform:translateY(8px); } 10% { opacity:1; transform:translateY(0); } 100% { opacity:1; } }
-@keyframes show-typing     { 0% { opacity:1; } 40% { opacity:1; } 55% { opacity:0; } 100% { opacity:0; } }
-@keyframes show-text       { 0% { opacity:0; } 50% { opacity:0; } 65% { opacity:1; } 80% { opacity:1; } 100% { opacity:0; } }
-@keyframes show-text-last  { 0% { opacity:0; } 50% { opacity:0; } 65% { opacity:1; } 100% { opacity:1; } }
+.chat-row:nth-child(1) { animation: chat-row-1 12s ease infinite; }
+.chat-row:nth-child(2) { animation: chat-row-2 12s ease infinite; }
+.chat-row:nth-child(3) { animation: chat-row-3 12s ease infinite; }
+.chat-row:nth-child(4) { animation: chat-row-4 12s ease infinite; }
+
+.chat-bubble--1 .chat-typing { animation: chat-typ-1 12s ease infinite; }
+.chat-bubble--2 .chat-typing { animation: chat-typ-2 12s ease infinite; }
+.chat-bubble--3 .chat-typing { animation: chat-typ-3 12s ease infinite; }
+.chat-bubble--4 .chat-typing { animation: chat-typ-4 12s ease infinite; }
+
+.chat-bubble--1 .chat-text { animation: chat-txt-1 12s ease infinite; }
+.chat-bubble--2 .chat-text { animation: chat-txt-2 12s ease infinite; }
+.chat-bubble--3 .chat-text { animation: chat-txt-3 12s ease infinite; }
+.chat-bubble--4 .chat-text { animation: chat-txt-4 12s ease infinite; }
+@keyframes chat-row-1 {
+  0%   { opacity:0; transform:translateY(8px); }
+  4%   { opacity:1; transform:translateY(0); }
+  22%  { opacity:1; }
+  25%  { opacity:0; }
+  100% { opacity:0; }
+}
+@keyframes chat-row-2 {
+  0%,25% { opacity:0; transform:translateY(8px); }
+  29%    { opacity:1; transform:translateY(0); }
+  47%    { opacity:1; }
+  50%    { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-row-3 {
+  0%,50% { opacity:0; transform:translateY(8px); }
+  54%    { opacity:1; transform:translateY(0); }
+  72%    { opacity:1; }
+  75%    { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-row-4 {
+  0%,75% { opacity:0; transform:translateY(8px); }
+  79%    { opacity:1; transform:translateY(0); }
+  96%    { opacity:1; }
+  99%    { opacity:0; }
+  100%   { opacity:0; }
+}
+
+/* TYPING DOTS — visible in first half of each bubble's window */
+@keyframes chat-typ-1 {
+  0%   { opacity:0; } 4%  { opacity:1; }
+  13%  { opacity:1; } 14% { opacity:0; }
+  100% { opacity:0; }
+}
+@keyframes chat-typ-2 {
+  0%,29% { opacity:0; } 30% { opacity:1; }
+  38%    { opacity:1; } 39% { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-typ-3 {
+  0%,54% { opacity:0; } 55% { opacity:1; }
+  63%    { opacity:1; } 64% { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-typ-4 {
+  0%,79% { opacity:0; } 80% { opacity:1; }
+  88%    { opacity:1; } 89% { opacity:0; }
+  100%   { opacity:0; }
+}
+
+/* MESSAGE TEXT — appears after typing dots fade, hides when row hides */
+@keyframes chat-txt-1 {
+  0%,13% { opacity:0; } 15% { opacity:1; }
+  22%    { opacity:1; } 25% { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-txt-2 {
+  0%,38% { opacity:0; } 40% { opacity:1; }
+  47%    { opacity:1; } 50% { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-txt-3 {
+  0%,63% { opacity:0; } 65% { opacity:1; }
+  72%    { opacity:1; } 75% { opacity:0; }
+  100%   { opacity:0; }
+}
+@keyframes chat-txt-4 {
+  0%,88% { opacity:0; } 90%  { opacity:1; }
+  96%    { opacity:1; } 99%  { opacity:0; }
+  100%   { opacity:0; }
+}
 
 /* CONTACT BODY */
 .contact-body { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--s12); padding: var(--s16) var(--s10); max-width: 1400px; margin: 0 auto; align-items: start; }
